@@ -1,0 +1,1 @@
+<H2 class="text-xl font-bold text-green-900 mb-6 underline">{{ $heading }}</H2>
