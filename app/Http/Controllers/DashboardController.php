@@ -15,9 +15,7 @@ class DashboardController extends Controller {
 	public function showDashboard(Request $request) {
 
 		$players = Player::get();
-		$leaderboard = $players->sortBy('points');
 
-		
-		return view('dashboard', compact('players', 'leaderboard'));
+		return view('dashboard', compact('players'));
 	}
 }

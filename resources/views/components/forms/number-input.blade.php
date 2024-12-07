@@ -1,0 +1,1 @@
+<input class="max-w-20 border-green-700 rounded-md" type="number" />

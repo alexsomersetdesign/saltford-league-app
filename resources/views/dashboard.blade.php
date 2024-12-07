@@ -35,6 +35,9 @@
                         </div>
                         <div class="col-span-12">
                             <x-dashboard-header heading="Match" />
+                            <x-forms.standard-form-wrapper method="POST" route="/complete-match">
+                                <x-forms.match-form :players="$players" />
+                            </x-standard-form-wrapper>
                         </div>
                     </div>
                 </div>
