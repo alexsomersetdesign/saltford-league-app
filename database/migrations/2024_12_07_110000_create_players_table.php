@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('second_name');
+            $table->bigInteger('sets')->default('0');
+            $table->bigInteger('games')->default('0');
             $table->bigInteger('points')->default('0');
             $table->smallInteger('seeding')->default('0');
             $table->timestamps();

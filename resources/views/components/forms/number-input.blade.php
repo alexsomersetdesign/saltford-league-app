@@ -1,1 +1,1 @@
-<input class="max-w-20 border-green-700 rounded-md" type="number" />
+<input name="{{ $name }}" class="max-w-20 border-green-700 py-[5px] rounded-md" type="number" />

@@ -15,6 +15,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/create-player', 'App\Http\Controllers\PlayerController@createPlayer');
+//Player Routes
+Route::post('/create-player', 'App\Http\Controllers\DashboardController@createPlayer');
+Route::post('/edit-player', 'App\Http\Controllers\DashboardController@createPlayer');
+Route::get('/player/{id}', 'App\Http\Controllers\DashboardController@playerDetails');
+
+//Match Routes
+Route::post('/complete-match', 'App\Http\Controllers\DashboardController@completeMatch');
+
+
+
+
+
+
 
 require __DIR__.'/auth.php';
