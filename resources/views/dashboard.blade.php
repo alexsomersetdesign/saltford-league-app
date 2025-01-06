@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-span-4">
                             <x-dashboard-header heading="Leaderboard" />
-                            <x-leaderboard.leaderboard :players="$players" />
+                            <x-leaderboard.dashboard-leaderboard :players="$players" />
                         </div>
                         <div class="col-span-12">
                             <x-dashboard-header heading="Match" />

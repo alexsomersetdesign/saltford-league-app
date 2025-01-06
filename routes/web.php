@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('auth/login');
 });
 
@@ -17,11 +17,13 @@ Route::middleware('auth')->group(function () {
 
 //Player Routes
 Route::post('/create-player', 'App\Http\Controllers\DashboardController@createPlayer');
-Route::post('/edit-player', 'App\Http\Controllers\DashboardController@createPlayer');
+Route::post('/edit-player', 'App\Http\Controllers\DashboardController@editPlayer');
 Route::get('/player/{id}', 'App\Http\Controllers\DashboardController@playerDetails');
 
 //Match Routes
 Route::post('/complete-match', 'App\Http\Controllers\DashboardController@completeMatch');
+
+Route::get('/', 'App\Http\Controllers\GuestController@showLeaderboard');
 
 
 

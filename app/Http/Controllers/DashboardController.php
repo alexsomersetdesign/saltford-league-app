@@ -30,10 +30,7 @@ class DashboardController extends Controller {
 		return view('dashboard', compact('players'));
 	}
 
-	
-
 	public function createPlayer(Request $request) {
-
 		$input = $request->all();
 		
 		$player = Player::create([
@@ -44,14 +41,24 @@ class DashboardController extends Controller {
 		return back()->with('message', 'Player Successfully Added');
 	}
 
+	public function editPlayer(Request $request) {
+		$input = $request->all();
+		$player = Player::where('id', $input['player_id'])->first();
+
+		$player->first_name = $input['first_name'];
+		$player->second_name = $input['second_name'];
+		$player->save();
+
+		return back()->with('message', 'Player Details Successfully Updated');
+
+	}
+
 	public function playerDetails(Request $request) {
 
 		$player = Player::where('id', $request->id)->first();
 
 		$played_matches = CompletedMatch::where('player_1_id', $player->id)->orWhere('player_2_id', $player->id)->get();
 		$matches_won = CompletedMatch::where('winner', $player->id)->get();
-
-
 
 		return view('pages.player', compact('player', 'matches_won', 'played_matches'));
 

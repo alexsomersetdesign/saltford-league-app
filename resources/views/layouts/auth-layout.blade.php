@@ -14,23 +14,17 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans text-gray-900 antialiased">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+            <div>
+                <a href="/">
+                    <x-application-logo class="w-32 h-32" />
+                </a>
+            </div>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow text-center">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg bg-green-700">
                 {{ $slot }}
-            </main>
+            </div>
         </div>
-    @stack('scripts')
     </body>
 </html>

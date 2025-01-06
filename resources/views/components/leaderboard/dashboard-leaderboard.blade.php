@@ -7,6 +7,6 @@
 		<span class="font-bold mr-0 ml-auto">Points</span>
 	</li>
 	@foreach($leaderboard_players as $player)
-		<x-leaderboard.leaderboard-player :player="$player" />
+		<x-leaderboard.dashboard-leaderboard-player :player="$player" />
 	@endforeach
 </ul>
