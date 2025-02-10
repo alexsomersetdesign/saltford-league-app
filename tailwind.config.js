@@ -8,6 +8,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/views/forms/*.blade.php',
+        './resources/components/forms/*.blade.php',
     ],
 
     theme: {

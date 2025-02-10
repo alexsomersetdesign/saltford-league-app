@@ -65,6 +65,10 @@ class DashboardController extends Controller {
 
 	}
 
+	public function createFixture(Request $request) {
+		dd($request->all());
+	}
+
 	public function completeMatch(Request $request) {
 
 		$input = $request->all();

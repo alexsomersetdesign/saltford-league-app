@@ -20,9 +20,11 @@ Route::post('/create-player', 'App\Http\Controllers\DashboardController@createPl
 Route::post('/edit-player', 'App\Http\Controllers\DashboardController@editPlayer');
 Route::get('/player/{id}', 'App\Http\Controllers\DashboardController@playerDetails');
 
+//Fixtures
+Route::post('/create-fixture', 'App\Http\Controllers\DashboardController@createFixture');
+
 //Match Routes
 Route::post('/complete-match', 'App\Http\Controllers\DashboardController@completeMatch');
-
 Route::get('/', 'App\Http\Controllers\GuestController@showLeaderboard');
 
 
