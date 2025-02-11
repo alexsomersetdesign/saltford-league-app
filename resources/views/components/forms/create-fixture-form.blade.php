@@ -17,7 +17,7 @@
     <div class="col-span-8">
         <div class="flex items-center gap-4 mb-5 justify-end">
             <x-forms.input-label class="text-green-900 font-semi-bold me-4" for="date" :value="__('Completion Date')" />
-            <x-forms.date-input name="date" class="border-green-700 border-1 block w-full mb-5 text-sm" />
+            <x-forms.date-input name="completion_date" class="border-green-700 border-1 block w-full mb-5 text-sm" />
         </div>
         <x-large-button type="submit" class="float-right">
             Create Fixture

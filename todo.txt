@@ -1,3 +1,7 @@
-1. Logic to create fixtures, delete fixtures
+1. Ability to view and edit fixtures
 2. Player registration to see results, upcoming fixtures and stats
 3. Any component refactoring
+4. Validation errors
+5. Write tests
+6. Check database queries using explain()
+7. Check application using OWASP for security issues

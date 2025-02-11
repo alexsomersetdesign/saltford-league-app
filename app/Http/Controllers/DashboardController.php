@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Player;
 use App\Models\CompletedMatch;
+use App\Models\Fixture;
 use App\Repositories\PlayerRepository;
 
 class DashboardController extends Controller {
@@ -66,7 +67,18 @@ class DashboardController extends Controller {
 	}
 
 	public function createFixture(Request $request) {
-		dd($request->all());
+
+		$input = $request->all();
+
+		//Create new instance of a fixture
+		$fixture = new Fixture;
+		$fixture->player_1_id = $input['player_1_id'];
+		$fixture->player_2_id = $input['player_2_id'];
+		$fixture->completion_date = $input['completion_date'];
+		$fixture->save();
+
+		return back()->with('message', 'New Fixture Added');
+
 	}
 
 	public function completeMatch(Request $request) {
