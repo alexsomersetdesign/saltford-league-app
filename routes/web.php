@@ -7,7 +7,10 @@ Route::get('/admin', function () {
     return view('auth/login');
 });
 
+//Dashboards
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@showDashboard')->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/player/dashboard',  'App\Http\Controllers\PlayerDashboardController@showPlayerDashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -15,10 +18,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 //Player Routes
 Route::post('/create-player', 'App\Http\Controllers\DashboardController@createPlayer');
 Route::post('/edit-player', 'App\Http\Controllers\DashboardController@editPlayer');
 Route::get('/player/{id}', 'App\Http\Controllers\DashboardController@playerDetails');
+
 
 //Fixtures
 Route::post('/create-fixture', 'App\Http\Controllers\DashboardController@createFixture');

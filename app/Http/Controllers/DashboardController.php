@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Player;
+use App\Models\User;
 use App\Models\CompletedMatch;
 use App\Models\Fixture;
 use App\Repositories\PlayerRepository;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller {
 
@@ -26,17 +28,20 @@ class DashboardController extends Controller {
 
 	public function showDashboard(Request $request) {
 
-		$players = Player::get();
+		$players = User::get();
 
 		return view('dashboard', compact('players'));
 	}
 
 	public function createPlayer(Request $request) {
 		$input = $request->all();
+		$hashed_password = Hash::make($input['password']);
 		
-		$player = Player::create([
-			'first_name' => $input['first_name'],
-			'second_name' => $input['second_name'],
+		$user = User::create([
+			'name' => $input['name'],
+			'email' => $input['email'],
+			'password' => $hashed_password
+
 		]);
 
 		return back()->with('message', 'Player Successfully Added');
@@ -44,10 +49,11 @@ class DashboardController extends Controller {
 
 	public function editPlayer(Request $request) {
 		$input = $request->all();
-		$player = Player::where('id', $input['player_id'])->first();
+		$player = User::where('id', $input['player_id'])->first();
+		
 
-		$player->first_name = $input['first_name'];
-		$player->second_name = $input['second_name'];
+		$player->name = $input['name'];
+		$player->email = $input['email'];
 		$player->save();
 
 		return back()->with('message', 'Player Details Successfully Updated');
@@ -56,8 +62,8 @@ class DashboardController extends Controller {
 
 	public function playerDetails(Request $request) {
 
-		$player = Player::where('id', $request->id)->first();
-
+		$player = User::where('id', $request->id)->first();
+		
 		$played_matches = CompletedMatch::where('player_1_id', $player->id)->orWhere('player_2_id', $player->id)->get();
 		$matches_won = CompletedMatch::where('winner', $player->id)->get();
 
