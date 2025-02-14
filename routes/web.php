@@ -9,7 +9,7 @@ Route::get('/admin', function () {
 
 //Dashboards
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@showDashboard')->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/player/dashboard',  'App\Http\Controllers\PlayerDashboardController@showPlayerDashboard');
+Route::get('/player/dashboard',  'App\Http\Controllers\PlayerDashboardController@showPlayerDashboard')->name('player-dashboard');
 
 
 Route::middleware('auth')->group(function () {

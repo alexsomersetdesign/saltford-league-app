@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use App\Models\Player;
+use App\Models\User;
 use App\Models\CompletedMatch;
 use App\Repositories\PlayerRepository;
 
@@ -26,7 +26,7 @@ class GuestController extends Controller {
 
 	public function showLeaderboard(Request $request) {
 
-		$ordered_players = Player::orderByDesc('points')->get();
+		$ordered_players = User::orderByDesc('points')->get();
 
 		return view('pages.guest-leaderboard', compact('ordered_players'));
 	}

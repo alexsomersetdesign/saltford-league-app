@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('admin')->default(0);
-
-            
-
-
+            $table->integer('points')->default(0);
         });
     }
 
@@ -26,5 +23,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropColumn('admin');
+        Schema::dropColumn('points');
     }
 };

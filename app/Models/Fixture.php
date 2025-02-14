@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class Fixture extends Authenticatable
 {
@@ -40,5 +41,26 @@ class Fixture extends Authenticatable
      *
      * @return array<string, string>
      */
+
+    public function getPlayerOne() {
+        return $this->belongsTo(User::class, 'player_1_id');
+    }
+    
+    public function getPlayerTwo() {
+        return $this->belongsTo(User::class, 'player_2_id');
+    }
+
+    public function getOpponent() {
+
+        //Get auth user
+        $auth_user = Auth::user()->id;
+
+        //Check to see if the auth user id matches that of player 1, if it does then return the user where id matches player 2 else return player 1
+        if($this->player_1_id === $auth_user) {
+            return $this->belongsTo(User::class, 'player_2_id');
+        } else {
+             return $this->belongsTo(User::class, 'player_1_id');
+        }
+    }
     
 }

@@ -5,3 +5,7 @@
 5. Write tests
 6. Check database queries using explain()
 7. Check application using OWASP for security issues
+8. Player passwor reset functionality
+9. Delete Player
+10. Password Confirm
+11. Code for registration

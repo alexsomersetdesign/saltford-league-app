@@ -1,4 +1,3 @@
-
 <div class="grid grid-cols-12 items-start">
     <div class="col-span-4">
         <div class="flex items-center gap-4 mb-5">

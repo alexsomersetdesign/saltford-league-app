@@ -29,8 +29,9 @@ class DashboardController extends Controller {
 	public function showDashboard(Request $request) {
 
 		$players = User::get();
+		$fixtures = Fixture::get();
 
-		return view('dashboard', compact('players'));
+		return view('dashboard', compact('players', 'fixtures'));
 	}
 
 	public function createPlayer(Request $request) {

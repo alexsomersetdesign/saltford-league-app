@@ -25,14 +25,12 @@ class PlayerDashboardController extends Controller {
 
 	public function showPlayerDashboard(Request $request) {
 
-        $user = Auth::user();
+        $player = Auth::user();
         
-        $fixtures = Fixture::where('player_1_id', $user->id)->orWhere('player_2_id', $user->id)->get();
-
-
+        $fixtures = Fixture::where('player_1_id', $player->id)->orWhere('player_2_id', $player->id)->get();
 		
 
-		return view('player-dashboard');
+		return view('player-dashboard', compact('fixtures'));
 	}
 
 }
