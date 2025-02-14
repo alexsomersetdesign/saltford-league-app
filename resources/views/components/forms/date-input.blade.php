@@ -1,0 +1,1 @@
+<input name="{{ $name }}" class="max-w-40 border-green-700 py-[5px] rounded-md" type="date" />

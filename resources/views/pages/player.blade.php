@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $player->first_name }} {{ $player->second_name }} <span class="font-light hidden text-sm ms-3">Seeded({{ $player->seeding }})</span>
+            {{ $player->name }} <span class="font-light hidden text-sm ms-3">Seeded({{ $player->seeding }})</span>
         </h2>
     </x-slot>
      <div class="py-12">

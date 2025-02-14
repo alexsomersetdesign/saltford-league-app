@@ -39,6 +39,12 @@
                                 <x-forms.match-form :players="$players" />
                             </x-standard-form-wrapper>
                         </div>
+                        <div class="col-span-7">
+                            <x-dashboard-header heading="Fixture" />
+                            <x-forms.standard-form-wrapper method="POST" route="/create-fixture">
+                                <x-forms.create-fixture-form :players="$players" />
+                            </x-standard-form-wrapper>
+                        </div>
                     </div>
                 </div>
             </div>
